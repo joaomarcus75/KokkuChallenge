@@ -11,6 +11,8 @@ namespace AutoBattle
         public List<GridBox> grids = new List<GridBox>();
         public int xLenght;
         public int yLength;
+        public GridBox newBox;
+        public GridBox currentgrid;
         public Grid(int Lines, int Columns)
         {
             xLenght = Lines;
@@ -34,14 +36,17 @@ namespace AutoBattle
             {
                 for (int j = 0; j < Columns; j++)
                 {
-                    GridBox currentgrid = new GridBox();
-                    if (currentgrid.ocupied)
+                    //currentgrid = new GridBox();
+                    if (i == currentgrid.xIndex && j == currentgrid.yIndex )
                     {
-                        //if()
+                        currentgrid.ocupied = true;
                         Console.Write("[X]\t");
+                        
+                        //currentgrid.ocupied = false;
                     }
                     else
                     {
+                        currentgrid.ocupied = false;
                         Console.Write($"[ ]\t");
                     }
                 }
